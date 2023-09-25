@@ -134,7 +134,7 @@ const Exchange = () => {
             </FormControl>
             <span className="mx-3 text-3xl">=</span>
 
-            <div className="w-full border-b py-1 border-gray-400 border-dashed text-gray-400">
+            <div className="w-full border-b py-1 border-gray-400 border-dotted text-gray-400">
               <span className="mr-1">{comparedCountryCurrencySymbol}</span>
               <span>{convertedNumber}</span>
             </div>
