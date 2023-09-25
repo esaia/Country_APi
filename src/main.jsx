@@ -5,7 +5,6 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import CountryProvider from "./context/CountryProvider.jsx";
-import { ReactQueryDevtools } from "react-query/devtools";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,7 +22,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <CountryProvider>
           <App />
         </CountryProvider>
-        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>
