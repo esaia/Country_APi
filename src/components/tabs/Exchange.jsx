@@ -32,6 +32,8 @@ const Exchange = () => {
   });
 
   const handleChangeCompareCountry = (e) => {
+    if (Object.entries(country).length === 0) return;
+
     const selectedCca3 = e.target.value;
     const selectedCountry = countries.find(
       (country) => country.cca3 === selectedCca3
@@ -49,6 +51,8 @@ const Exchange = () => {
   };
 
   const handleChangeAmmount = (e) => {
+    if (Object.entries(country).length === 0) return;
+
     const myNumber = e.target.value;
     setbaseNumber(myNumber);
     const compareCurrency = Object.entries(compareCountry.currencies)[0][0];
