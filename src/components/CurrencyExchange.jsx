@@ -16,7 +16,8 @@ const CurrencyExchange = () => {
   const handleChange = (_, v) => {
     setTabValue(v);
     if (v === "airports") {
-      navigate(`/${location.pathname.split("/")[1]}/airports`);
+      if (!location.pathname.split("/")[1]) return;
+      else navigate(`/${location.pathname.split("/")[1]}/airports`);
     } else {
       navigate(`/${location.pathname.split("/")[1]}`);
     }

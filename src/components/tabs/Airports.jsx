@@ -38,6 +38,10 @@ const Airports = () => {
       }
     };
 
+    if (!searchStr) {
+      return;
+    }
+
     const timeoutId = setTimeout(refetchAirportsinTimeout, 500);
 
     return () => clearTimeout(timeoutId);
