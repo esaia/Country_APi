@@ -25,10 +25,11 @@ export const fetchAirports = async (country, searchInput) => {
 
 export const fetchRates = async (country) => {
   const base = Object.entries(country.currencies)[0][0];
-  const params = { base };
+  const access_key = import.meta.env.VITE_RATE_API_KEY;
+  const params = { access_key, source: base, format: 1 };
 
-  const { data } = await axios.get(import.meta.env.VITE_RATES_API, {
+  const { data } = await axios.get("http://apilayer.net/api/live", {
     params,
   });
-  return data;
+  return { rates: data.quotes };
 };

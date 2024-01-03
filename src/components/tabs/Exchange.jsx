@@ -6,7 +6,7 @@ import {
   Select,
   Skeleton,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useCountryContext } from "../../context/CountryProvider";
 import { fetchRates } from "../../lib/api";
 import { useQuery, useQueryClient } from "react-query";
@@ -56,7 +56,14 @@ const Exchange = () => {
     const myNumber = e.target.value;
     setbaseNumber(myNumber);
     const compareCurrency = Object.entries(compareCountry.currencies)[0][0];
-    const resultNumber = (myNumber * rates.rates[compareCurrency]).toFixed(2);
+    const countryCurrency = Object.entries(country.currencies)[0][0];
+    let currency;
+    if (compareCurrency === countryCurrency) {
+      currency = 1;
+    } else {
+      currency = rates.rates[`${countryCurrency}${compareCurrency}`];
+    }
+    const resultNumber = (myNumber * currency).toFixed(2);
     setConvertedNumber(resultNumber);
   };
 
